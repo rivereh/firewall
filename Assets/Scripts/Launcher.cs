@@ -59,6 +59,12 @@ public class Launcher : MonoBehaviourPunCallbacks
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
 
         Player[] players = PhotonNetwork.PlayerList;
+
+        foreach (Transform child in playerListContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
         for (int i = 0; i < players.Count(); i++)
         {
             Instantiate(playerListItemPrefab, playerListContainer).GetComponent<PlayerListItem>().Setup(players[i]);
@@ -90,12 +96,16 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        foreach (Transform trans in roomListContainer)
+        foreach (Transform child in roomListContainer)
         {
-            Destroy(trans.gameObject);
+            Destroy(child.gameObject);
         }
         for (int i = 0; i < roomList.Count; i++)
         {
+            if (roomList[i].RemovedFromList)
+            {
+                continue;
+            }
             Instantiate(roomListItemPrefab, roomListContainer).GetComponent<RoomListItem>().Setup(roomList[i]);
         }
     }

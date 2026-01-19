@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
 	float distToGround;
 
 	void Start () {
-		mouseLook = transform.FindChild("Camera").GetComponent<MouseLook>();
+		mouseLook = transform.Find("Camera").GetComponent<MouseLook>();
 		rb = GetComponent<Rigidbody> ();
 		distToGround = GetComponent<CapsuleCollider> ().bounds.extents.y;
 	}

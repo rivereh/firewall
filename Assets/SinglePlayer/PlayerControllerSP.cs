@@ -1,15 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
-
-
-[RequireComponent(typeof(PhotonView))]
-public class PlayerController : MonoBehaviour
+public class PlayerControllerSP : MonoBehaviour
 {
 
     [SerializeField] GameObject cameraHolder;
-    [SerializeField] GameObject playerModel;
     float mouseSensitivity = 3f;
     float sprintSpeed = 6f;
     float walkSpeed = 3f;
@@ -22,44 +17,21 @@ public class PlayerController : MonoBehaviour
     Vector3 moveAmount;
 
     Rigidbody rb;
-    PhotonView PV;
-
-    SkinnedMeshRenderer[] playerModelItems;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        PV = GetComponent<PhotonView>();
     }
 
     void Start()
     {
-        if (!PV.IsMine)
-        {
-            Destroy(GetComponentInChildren<Camera>().gameObject);
-            Destroy(rb);
-        }
-        else {
-            playerModelItems = GetComponentsInChildren<SkinnedMeshRenderer>();
-            foreach (SkinnedMeshRenderer item in playerModelItems)
-                item.gameObject.SetActive(false);
-        }
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
-        if (!PV.IsMine)
-            return;
         Look();
         Move();
         Jump();
-
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
     }
 
     void Look()
@@ -92,8 +64,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!PV.IsMine)
-            return;
         rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
     }
 }

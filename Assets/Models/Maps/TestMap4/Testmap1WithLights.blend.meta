@@ -3,7 +3,32 @@ guid: 79a46dd1041bccb4d99562f155ee8308
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MapLight
+    second: {fileID: 2100000, guid: db053a2fc37cf294c9dd2326fa938bff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: ee3e28641ecda964eb7ac6dfb3e03b27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.007
+    second: {fileID: 2100000, guid: 394c4ab3cf328fd479c1f8e543411fc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Testmapgrey
+    second: {fileID: 2100000, guid: 7c1f6a47d1d8e864cb7cf3f886d4ac23, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: testmaporange
+    second: {fileID: 2100000, guid: aab4ee250df82674b8efe513c955979f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -33,7 +58,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 4.5
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -91,14 +116,14 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 4.5
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
